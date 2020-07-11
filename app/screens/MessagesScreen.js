@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet, FlatList } from "react-native";
+import { StyleSheet, FlatList, View } from "react-native";
 import ListItem from "../components/ListItem";
 import Constants from "expo-constants";
 import Screen from "../components/Screen";
 import ListItemSeperator from "../components/ListItemSeperator";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
 const messages = [
   {
@@ -31,7 +32,8 @@ export default function MessagesScreen(props) {
             title={item.title}
             subTitle={item.description}
             image={item.image}
-            onPress={()=>console.log('message selected', item)}
+            onPress={() => console.log("message selected", item)}
+            renderRightActions={ListItemDeleteAction}
           />
         )}
         ItemSeparatorComponent={ListItemSeperator}
