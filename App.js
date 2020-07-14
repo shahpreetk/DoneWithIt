@@ -11,12 +11,14 @@ import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
 // import {} from '@expo/vector-icons';
 
 export default function App() {
   return (
     <Screen>
       <AppTextInput placeholder='Username' icon='email'/>
+      <AppPicker placeholder='Category' icon='apps' />
     </Screen>
   );
 }
