@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
@@ -14,11 +14,25 @@ import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 // import {} from '@expo/vector-icons';
 
+const categories = [
+  { label: "Furniture", value: 1 },
+  { label: "Clothing", value: 2 },
+  { label: "Cameras", value: 3 },
+];
+
 export default function App() {
+  const [category, setCategory] = useState(categories[0]);
+
   return (
     <Screen>
-      <AppTextInput placeholder='Username' icon='email'/>
-      <AppPicker placeholder='Category' icon='apps' />
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
+        items={categories}
+        placeholder="Category"
+        icon="apps"
+      />
+      <AppTextInput placeholder="Username" icon="email" />
     </Screen>
   );
 }
