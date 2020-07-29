@@ -26,7 +26,7 @@ const menuItems = [
 ];
 
 export default function AccountScreen({ navigation }) {
-  const {user} = useContext(AuthContext)
+  const {user, setUser} = useContext(AuthContext)
 
   return (
     <Screen style={styles.screen}>
@@ -59,6 +59,7 @@ export default function AccountScreen({ navigation }) {
       <ListItem
         IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
         title="Log Out"
+        onPress={()=>setUser(null)}
       />
     </Screen>
   );
