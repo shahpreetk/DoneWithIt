@@ -10,6 +10,7 @@ import authStorage from "./app/auth/storage";
 
 export default function App() {
   const [user, setUser] = useState();
+  const [isReady, setIsReady] = useState(false)
 
   const restoreToken = async () => {
     const token = await authStorage.getToken();
@@ -17,10 +18,12 @@ export default function App() {
     setUser(jwtDecode(token));
   };
 
-  useEffect(() => {
-    restoreToken();
-  }, []);
-  
+  if(!isReady) return <AppLoading startAsync={restoreToken} onFinish={()=>setIsReady(true)} />
+
+  // useEffect(() => {
+  //   restoreToken();
+  // }, []);
+
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <NavigationContainer theme={navigationTheme}>
