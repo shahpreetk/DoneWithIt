@@ -22,7 +22,7 @@ const isExpired = item => {
   return now.diff(storedTime,'minutes') > expiryInMinutes;
 }
 
-const get = (key) => {
+const get = async (key) => {
   try {
     const value = await AsyncStorage.getItem(prefix + key);
     const item = JSON.parse(value)
