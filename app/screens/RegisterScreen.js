@@ -41,8 +41,9 @@ export default function RegisterScreen() {
   };
 
   return (
-    <Screen style={styles.container}>
+    <>
     <ActivityIndicator visible={registerApi.loading || loginApi.loading} />
+    <Screen style={styles.container}>
       <AppForm
         initialValues={{ name:'', email: "", password: "" }}
         onSubmit={handleSubmit}
@@ -76,6 +77,7 @@ export default function RegisterScreen() {
         <SubmitButton title="Register" />
       </AppForm>
     </Screen>
+    </>
   );
 }
 
