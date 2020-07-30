@@ -1,15 +1,20 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, KeyboardAvoidingView, Platform, Keyboard } from "react-native";
 import { Image } from "react-native-expo-image-cache";
 import AppText from "../components/AppText";
 import colors from "../config/colors";
 import ListItem from "../components/lists/ListItem";
+import ContactSellerForm from "../components/ContactSellerForm";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 export default function ListingDetailsScreen({route}) {
   const listing = route.params;
 
   return (
-    <View>
+    <KeyboardAvoidingView
+      behavior="position"
+      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
+    >
       <Image style={styles.image} preview={{uri:listing.images[0].thumbnailUrl}} tint='light' uri={listing.images[0].url} />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{listing.title}</AppText>
@@ -21,8 +26,9 @@ export default function ListingDetailsScreen({route}) {
             subTitle="4 Listings"
           />
         </View>
+        <ContactSellerForm listing={listing} />
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 

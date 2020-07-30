@@ -23,6 +23,9 @@
       "favicon": "./assets/favicon.png"
     },
     "description": "A marketplace for selling the stuff you don't need anymore ",
-    "githubUrl": "https://github.com/shahpreetk/DoneWithIt"
+    "githubUrl": "https://github.com/shahpreetk/DoneWithIt",
+    "notification": {
+      "iosDisplayInForeground": true
+    }
   }
 }
